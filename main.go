@@ -11,12 +11,9 @@ func main(){
 	c := cli.NewYacli()
 	args := os.Args
 	
-	// 
-
-	// fmt.Println(args)
-	// fmt.Printf("%T\n", args)
-	// fmt.Println(len(args))
-
+	// u.LenString(args)
+	// u.Type(args)
+		
 	if (len(args)==1){
 		fmt.Println(cli.NewHelp().Get())
 	}

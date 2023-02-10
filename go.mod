@@ -2,11 +2,13 @@ module github.com/cbot918/ya
 
 go 1.19
 
-require github.com/gofiber/fiber/v2 v2.42.0
+require (
+	github.com/cbot918/liby v1.0.3
+	github.com/gofiber/fiber/v2 v2.42.0
+)
 
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
-	github.com/cbot918/liby v1.0.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
