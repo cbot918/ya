@@ -29,6 +29,13 @@ func (y *Ya) Run(){
 	args := os.Args
 	projectName := ""
 	switch args[1] {
+
+	case "tool":{
+		if args[2] == "gitssh"{
+			u.Logg("in gitssh")
+		}
+	}
+
 	case "cmd":{
 		u.Logg("in cmd")
 		c.Run([]string{
