@@ -1,12 +1,11 @@
-install:
-	./install.sh
+clean:
+	rm *.test
 
-test:
-	./test/ete.sh
+test-install:
+	go run test/test_install/main.go
 
-test-clean:
-	docker container stop ete
-	docker container rm ete
+run:
+	go run .
 
-.PHONY: install test test-clean
-.SILENT: install
+.PHONY: clean run
+.SILENT: clean run
