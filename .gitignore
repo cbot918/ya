@@ -1,2 +1,5 @@
-*.exe
-/source
+var.txt
+f/
+.vagrant/
+/test/*.log
+data/

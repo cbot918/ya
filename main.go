@@ -1,46 +1,12 @@
 package main
 
-import (
-	"fmt"
-	"os"
-
-	"github.com/cbot918/ya/src/cli"
-)
+import "github.com/cbot918/liby/cmdy"
 
 func main(){
-	c := cli.NewYacli()
-	args := os.Args
+	c := cmdy.New()
+	script1 := []string{"git clone -b go https://github.com/cbot918/template"}
+	script2 := []string{"rm -rf template"}
+	c.Run(script1)
+	c.Run(script2)
 	
-	// u.LenString(args)
-	// u.Type(args)
-		
-	if (len(args)==1){
-		fmt.Println(cli.NewHelp().Get())
-	}
-
-	if (len(args)>1){
-		arg := args[1]
-		switch arg {
-			case "list": {
-				c.List()
-			}
-			case "install": {
-				c.Install()
-			}
-			case "delete": {
-				c.Delete()
-			}
-			case "installed": {
-				c.Installed()
-			}
-			default: {
-				fmt.Println("unknown command")
-			}  
-	 }
-	}
-
-
-
-	// service.NewYa().Run(":3333")
-		
 }
