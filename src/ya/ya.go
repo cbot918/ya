@@ -44,7 +44,7 @@ func (y *Ya) Run(){
 				if len(args) == 2 {
 						// env docker
 						fmt.Println("pre-install start...")
-						execStr := "ls -a"
+						execStr := "ls / -a"
 						result, err:=exec.Command("/bin/sh", "-c", execStr).Output()
 						u.Checke(err, "exec command failed")
 						if (strings.Contains(string(result), ".dockerenv")) {
