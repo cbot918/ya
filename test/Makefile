@@ -38,9 +38,10 @@ ci-vm-destroy:
 	$(VAGRANT) destroy ci-vm -f
 
 
-
-
 build: main.go
+	go build -o ya . 
+
+ya: main.go
 	go build -o ya . 
 
 

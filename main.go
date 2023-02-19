@@ -9,6 +9,4 @@ func main(){
 	c.Run(script1)
 	c.Run(script2)
 	
-	
-
 }
