@@ -7,7 +7,7 @@ install: bin
 
 bin:
 	mkdir -p bin
-	go build -o bin/$(BIN_NAME) cmd/main.go
+	go build -o bin/$(BIN_NAME) main.go
 
 clean:
 	rm *.test
