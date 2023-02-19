@@ -42,38 +42,33 @@ func (y *Ya) Run(){
 			}
 			case "pre": {
 				if len(args) == 2 {
-						// env docker
+
 						fmt.Println("pre-install start...")
+						// get ls -a string and identify contains .dockerenv or not
 						execStr := "ls / -a"
 						result, err:=exec.Command("/bin/sh", "-c", execStr).Output()
 						u.Checke(err, "exec command failed")
+						c.Run([]string{
+							"git config --global user.name 'cbot918'",
+							"git config --global user.email 'cbot918@gmail.com'",
+						})
 						if (strings.Contains(string(result), ".dockerenv")) {
-							fmt.Println("in docker")
-							// docker
-							// c.Run([]string{
-							// 	"apt update && apt install curl -y",
-							// 	fmt.Sprintf("curl -OL %s && tar -xvf %s.tar.gz",y.GhUrl, y.GhName),
-							// 	fmt.Sprintf("mkdir -p /usr/local/bin && cp %s/bin/gh /usr/local/bin ",y.GhName),
-							// 	fmt.Sprintf("rm -r %s && rm %s.tar.gz",y.GhName,y.GhName ),
-							// 	"git config --global user.name 'cbot918'",
-							// 	"git config --global user.email 'cbot918@gmail.com'",
-							// })
+							// docker env
+							c.Run([]string{
+								"apt update && apt install curl -y",
+								fmt.Sprintf("curl -OL %s && tar -xvf %s.tar.gz",y.GhUrl, y.GhName),
+								fmt.Sprintf("mkdir -p /usr/local/bin && cp %s/bin/gh /usr/local/bin ",y.GhName),
+								fmt.Sprintf("rm -r %s && rm %s.tar.gz",y.GhName,y.GhName ),
+							})
 						} else {
-							fmt.Println("in VM")
-							// VM
-							// c.Run([]string{
-							// 	"sudo apt update && sudo apt install curl",
-							// 	fmt.Sprintf("curl -OL %s && tar -xvf %s.tar.gz",y.GhUrl, y.GhName),
-							// 	fmt.Sprintf("mkdir -p /usr/local/bin && sudo cp %s/bin/gh /usr/local/bin ",y.GhName),
-							// 	fmt.Sprintf("rm -rf %s && rm %s.tar.gz",y.GhName,y.GhName),
-							// 	"git config --global user.name 'cbot918'",
-							// 	"git config --global user.email 'cbot918@gmail.com'",
-							// })
+							//VM env
+							c.Run([]string{
+								"sudo apt update && sudo apt install curl",
+								fmt.Sprintf("curl -OL %s && tar -xvf %s.tar.gz",y.GhUrl, y.GhName),
+								fmt.Sprintf("mkdir -p /usr/local/bin && sudo cp %s/bin/gh /usr/local/bin ",y.GhName),
+								fmt.Sprintf("rm -rf %s && rm %s.tar.gz",y.GhName,y.GhName),
+							})
 						}
-						// u.Type(result[0])
-						// _ ,err := c.RunAndGet([]string{"ls .dockerenv"})
-						// fmt.Println(result)
-						// fmt.Println("*result", result)
 				} 
 				// if args[2] == "git" {
 				// 	c.Run([]string{""})
