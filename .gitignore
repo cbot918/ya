@@ -3,3 +3,4 @@ f/
 .vagrant/
 /test/*.log
 data/
+bin/
